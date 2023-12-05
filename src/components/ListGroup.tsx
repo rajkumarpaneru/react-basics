@@ -1,14 +1,18 @@
 import React from "react";
 
 const ListGroup = () => {
+  const todos = ["Study", "Exercise", "Code", "Meditate"];
   return (
-    <ul className="list-group">
-      <li className="list-group-item">An item</li>
-      <li className="list-group-item">A second item</li>
-      <li className="list-group-item">A third item</li>
-      <li className="list-group-item">A fourth item</li>
-      <li className="list-group-item">And a fifth one</li>
-    </ul>
+    <>
+      <h1>My Todo List</h1>
+      <ul className="list-group">
+        {todos.map((todo, index) => (
+          <li className="list-group-item" key={index}>
+            {todo}
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 
