@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 
-const ListGroup = () => {
-  const todos = ["Study", "Exercise", "Code", "Meditate"];
-
+interface Props {
+  items: string[];
+  heading: string;
+}
+const ListGroup = (props: Props) => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   return (
     <>
-      <h1>My Todo List</h1>
+      <h1>{props.heading}</h1>
       <ul className="list-group">
-        {todos.map((todo, index) => (
+        {props.items.map((todo, index) => (
           <li
             className={
               selectedIndex === index
