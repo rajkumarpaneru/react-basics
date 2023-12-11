@@ -9,6 +9,7 @@ const ListGroup = ({ items, heading }: Props) => {
   return (
     <>
       <h1>{heading}</h1>
+      {items.length === 0 && <p>No items found</p>}
       <ul className="list-group">
         {items.map((todo, index) => (
           <li

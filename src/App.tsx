@@ -3,7 +3,8 @@ import Message from "./Message";
 import ListGroup from "./components/ListGroup";
 
 const App = () => {
-  const todos = ["Study", "Exercise", "Code", "Meditate", "Run"];
+  let todos = ["Study", "Exercise", "Code", "Meditate", "Run"];
+  // todos = [];
   const heading = "To Do List";
   return (
     <div>
