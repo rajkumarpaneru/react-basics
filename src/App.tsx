@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Message from "./Message";
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
@@ -16,6 +16,9 @@ const App = () => {
   const handleOnClick = () => {
     console.log("Clicked");
   };
+
+  const [isAlertVisible, setAlertVisible] = useState(false);
+
   return (
     <div>
       {/* <ListGroup
@@ -26,7 +29,14 @@ const App = () => {
 
       <Alert>List Items retrieved successfully.</Alert> */}
 
-      <Button color="info" onClick={handleOnClick}>
+      {isAlertVisible && (
+        <Alert onClick={() => setAlertVisible(false)}>
+          <strong>Holy guacamole!</strong> You should check in on some of those
+          fields below.
+        </Alert>
+      )}
+
+      <Button color="info" onClick={() => setAlertVisible(true)}>
         My Button
       </Button>
     </div>
