@@ -21,14 +21,14 @@ const App = () => {
 
   return (
     <div>
-      {/* <ListGroup
+      <ListGroup
         items={todos}
         heading={heading}
         onSelectItem={handleSelectItem}
       />
 
-      <Alert>List Items retrieved successfully.</Alert> */}
-
+      {/* <Alert>List Items retrieved successfully.</Alert> */}
+      {/* 
       {isAlertVisible && (
         <Alert onClick={() => setAlertVisible(false)}>
           <strong>Holy guacamole!</strong> You should check in on some of those
@@ -38,7 +38,7 @@ const App = () => {
 
       <Button color="info" onClick={() => setAlertVisible(true)}>
         My Button
-      </Button>
+      </Button> */}
     </div>
   );
 };
