@@ -3,27 +3,14 @@ import Message from "./Message";
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
+import Like from "./components/Like";
 
 const App = () => {
-  let todos = ["Study", "Exercise", "Code", "Meditate", "Run"];
-  // todos = [];
-  const heading = "To Do List";
-
-  const handleSelectItem = (item: string) => {
-    console.log(item);
+  const handleClick = () => {
+    console.log("clicked");
   };
 
-  const handleOnClick = () => {
-    console.log("Clicked");
-  };
-
-  const [isAlertVisible, setAlertVisible] = useState(false);
-
-  return (
-    <div>
-      <Button onClick={() => {}}>My Button</Button>
-    </div>
-  );
+  return <Like onClick={handleClick} />;
 };
 
 export default App;
