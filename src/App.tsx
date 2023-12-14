@@ -21,24 +21,7 @@ const App = () => {
 
   return (
     <div>
-      <ListGroup
-        items={todos}
-        heading={heading}
-        onSelectItem={handleSelectItem}
-      />
-
-      {/* <Alert>List Items retrieved successfully.</Alert> */}
-      {/* 
-      {isAlertVisible && (
-        <Alert onClick={() => setAlertVisible(false)}>
-          <strong>Holy guacamole!</strong> You should check in on some of those
-          fields below.
-        </Alert>
-      )}
-
-      <Button color="info" onClick={() => setAlertVisible(true)}>
-        My Button
-      </Button> */}
+      <Button onClick={() => {}}>My Button</Button>
     </div>
   );
 };
