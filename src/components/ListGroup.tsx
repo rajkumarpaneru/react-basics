@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./ListGroup.module.css";
+import { FaStarOfLife } from "react-icons/fa6";
 
 interface Props {
   items: string[];
@@ -10,7 +11,8 @@ const ListGroup = ({ items, heading, onSelectItem }: Props) => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   return (
     <>
-      <h1>{heading}</h1>
+      <FaStarOfLife />
+      <h1>{heading}</h1> <FaStarOfLife />
       {items.length === 0 && <p>No items found</p>}
       <ul className={styles.listGroup}>
         {items.map((todo, index) => (
