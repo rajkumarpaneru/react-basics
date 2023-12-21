@@ -4,13 +4,10 @@ import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 import Like from "./components/Like";
+import UpdateState from "./components/UpdateState";
 
 const App = () => {
-  const handleClick = () => {
-    console.log("clicked");
-  };
-
-  return <Like onClick={handleClick} />;
+  return <UpdateState />;
 };
 
 export default App;
