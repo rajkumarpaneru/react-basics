@@ -21,7 +21,38 @@ const UpdateState = () => {
     { id: 2, title: "Bug 2", fixed: false },
   ]);
 
+  const [game, setGame] = useState({
+    id: 1,
+    player: {
+      name: "John",
+    },
+  });
+
+  const [pizza, setPizza] = useState({
+    name: "Spicy Pepperoni",
+    toppings: ["Mushroom"],
+  });
+
+  const [cart, setCart] = useState({
+    discount: 0.1,
+    items: [
+      { id: 1, title: "Product 1", quantity: 1 },
+      { id: 1, title: "Product 2", quantity: 1 },
+    ],
+  });
+
   const handleClick = () => {
+    setCart({
+      ...cart,
+      items: cart.items.map((item) =>
+        item.id === 1 ? { ...item, quantity: 5 } : item
+      ),
+    });
+
+    setGame({ ...game, player: { ...game.player, name: "Max" } });
+
+    setPizza({ ...pizza, toppings: [...pizza.toppings, "Olive"] });
+
     const newDrink = {
       ...drink,
       price: 6,
@@ -56,6 +87,12 @@ const UpdateState = () => {
       {customer.address.zipCode}
       <br />
       {tags[tags.length - 1]}
+      <br />
+      {game.player.name}
+      <br />
+      {pizza.toppings.join(", ")}
+      <br />
+      {cart.items[0].quantity}
       <br />
       <button onClick={handleClick}>Click Me</button>
     </div>

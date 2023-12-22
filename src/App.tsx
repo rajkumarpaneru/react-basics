@@ -17,8 +17,7 @@ const App = () => {
 
   return (
     <div>
-      <Navbar cartItemCount={cartItems.length} />
-      <Cart cartItems={cartItems} onClear={handleClear} />
+      <UpdateState />
     </div>
   );
 };
