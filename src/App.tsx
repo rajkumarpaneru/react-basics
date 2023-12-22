@@ -8,6 +8,7 @@ import UpdateState from "./components/UpdateState";
 import Navbar from "./components/Navbar";
 import Cart from "./components/Cart";
 import ExpandableText from "./components/ExpandableText";
+import ExpandableTextRefactored from "./components/ExpandableTextRefactored";
 
 const App = () => {
   const handleClear = () => {
@@ -18,7 +19,7 @@ const App = () => {
 
   return (
     <div>
-      <ExpandableText count={20}>
+      <ExpandableTextRefactored count={20}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
@@ -26,7 +27,7 @@ const App = () => {
         velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
         occaecat cupidatat non proident, sunt in culpa qui officia deserunt
         mollit anim id est laborum.
-      </ExpandableText>
+      </ExpandableTextRefactored>
     </div>
   );
 };
