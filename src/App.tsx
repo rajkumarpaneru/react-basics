@@ -10,21 +10,24 @@ import Cart from "./components/Cart";
 import ExpandableText from "./components/ExpandableText";
 import ExpandableTextRefactored from "./components/ExpandableTextRefactored";
 import Form from "./components/Form";
+import ProductList from "./components/ProductList";
 
 const App = () => {
-  const ref = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (ref.current) ref.current.focus();
-  });
-
-  useEffect(() => {
-    document.title = "My App";
-  });
+  const [category, setCategory] = useState("");
 
   return (
     <div>
-      <input ref={ref} type="text" className="form-control" />
+      <select
+        className="form-select"
+        onChange={(event) => {
+          setCategory(event.target.value);
+        }}
+      >
+        <option value=""></option>
+        <option value="Clothing">Clothing</option>
+        <option value="Household">Household</option>
+      </select>
+      <ProductList category={category} />
     </div>
   );
 };
