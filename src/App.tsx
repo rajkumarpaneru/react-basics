@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Message from "./Message";
 import ListGroup from "./components/ListGroup";
 import Alert from "./components/Alert";
@@ -12,15 +12,19 @@ import ExpandableTextRefactored from "./components/ExpandableTextRefactored";
 import Form from "./components/Form";
 
 const App = () => {
-  const handleClear = () => {
-    setCartItems([]);
-  };
+  const ref = useRef<HTMLInputElement>(null);
 
-  const [cartItems, setCartItems] = useState(["Product1", "Product2"]);
+  useEffect(() => {
+    if (ref.current) ref.current.focus();
+  });
+
+  useEffect(() => {
+    document.title = "My App";
+  });
 
   return (
     <div>
-      <Form />
+      <input ref={ref} type="text" className="form-control" />
     </div>
   );
 };
