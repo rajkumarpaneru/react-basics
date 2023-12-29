@@ -11,17 +11,33 @@ import ExpandableText from "./components/ExpandableText";
 import ExpandableTextRefactored from "./components/ExpandableTextRefactored";
 import Form from "./components/Form";
 import ProductList from "./components/ProductList";
+import axios from "axios";
 
 const connect = () => console.log("Connecting");
 const disconnect = () => console.log("Disconnecting");
 
-const App = () => {
-  useEffect(() => {
-    connect();
+interface User {
+  id: number;
+  name: string;
+}
 
-    return () => disconnect();
-  });
-  return <div></div>;
+const App = () => {
+  const [users, setUsers] = useState<User[]>([]);
+
+  useEffect(() => {
+    axios
+      .get<User[]>("https://jsonplaceholder.typicode.com/users")
+      .then((response) => {
+        setUsers(response.data);
+      });
+  }, []);
+  return (
+    <ul>
+      {users.map((user) => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
+  );
 };
 
 export default App;
