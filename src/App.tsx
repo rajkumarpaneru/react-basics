@@ -11,7 +11,7 @@ import ExpandableText from "./components/ExpandableText";
 import ExpandableTextRefactored from "./components/ExpandableTextRefactored";
 import Form from "./components/Form";
 import ProductList from "./components/ProductList";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 const connect = () => console.log("Connecting");
 const disconnect = () => console.log("Disconnecting");
@@ -26,14 +26,25 @@ const App = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    axios
-      .get<User[]>("https://jsonplaceholder.typicode.com/xusers")
-      .then((response) => {
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get<User[]>(
+          "https://jsonplaceholder.typicode.com/users"
+        );
+
         setUsers(response.data);
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
+      } catch (error) {
+        setError((error as AxiosError).message);
+      }
+    };
+
+    fetchUsers();
+    // .then((response) => {
+    //   setUsers(response.data);
+    // })
+    // .catch((error) => {
+    //   setError(error.message);
+    // });
   }, []);
   return (
     <>
