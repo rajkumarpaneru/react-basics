@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient, { CanceledError } from "./services/api-client";
-
-interface User {
-  id: number;
-  name: string;
-}
+import userService, { User } from "./services/user-service";
 
 const App = () => {
   const [users, setUsers] = useState<User[]>([]);
@@ -12,14 +8,11 @@ const App = () => {
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
-    const controller = new AbortController();
-
     setLoading(true);
 
-    apiClient
-      .get<User[]>("/users", {
-        signal: controller.signal,
-      })
+    const { request, cancel } = userService.getAllUsers();
+
+    request
       .then((response) => {
         setUsers(response.data);
         setLoading(false);
@@ -32,7 +25,7 @@ const App = () => {
     //does not work with strict mode "on"
     // .finally(() => {setLoading(false)});
 
-    return () => controller.abort();
+    return () => cancel();
   }, []);
 
   const deleteUser = (user: User) => {
